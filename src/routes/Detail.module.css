@@ -1,5 +1,3 @@
-/* Detail.module.css */
-
 .container {
   position: relative;
   width: 100%;
@@ -84,4 +82,53 @@
   text-align: center;
   font-size: 24px;
   margin: 40px 0;
+}
+
+/* 반응형 스타일 추가 */
+@media (max-width: 768px) {
+  .movieDetails {
+    flex-direction: column; /* 모바일에서는 세로 방향으로 배치 */
+    gap: 20px;
+    padding: 15px;
+  }
+
+  .moviePoster {
+    width: 250px;
+    height: 375px;
+  }
+
+  .movieTitle {
+    font-size: 28px; /* 제목 크기 조정 */
+  }
+
+  .movieOverview {
+    font-size: 16px; /* 개요 글자 크기 조정 */
+  }
+
+  .movieDetailsList {
+    font-size: 14px; /* 세부사항 글자 크기 조정 */
+  }
+}
+
+@media (max-width: 480px) {
+  .movieDetails {
+    padding: 10px;
+  }
+
+  .moviePoster {
+    width: 200px;
+    height: 300px;
+  }
+
+  .movieTitle {
+    font-size: 24px; /* 제목 크기 더 작게 */
+  }
+
+  .movieOverview {
+    font-size: 14px; /* 개요 글자 크기 더 작게 */
+  }
+
+  .movieDetailsList {
+    font-size: 12px; /* 세부사항 글자 크기 더 작게 */
+  }
 }
