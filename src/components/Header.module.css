@@ -1,0 +1,181 @@
+/* Header.module.css */
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  background: linear-gradient(135deg, #141414, #1e1e1e);
+  color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  min-height: 60px; /* 헤더 높이 고정 */
+}
+
+.container {
+  max-width: 1200px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  color: #e50914;
+  font-size: 36px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-family: "Bebas Neue", sans-serif;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  display: inline-block;
+  text-decoration: none; /* 밑줄 제거 */
+  transform: perspective(500px) rotateX(10deg);
+  margin-right: auto; /* 왼쪽으로 붙이기 위해 추가 */
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+}
+
+.navList {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.nav a,
+.username {
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  transition: color 0.3s ease;
+  align-items: center;
+}
+
+.nav a:hover,
+.logoutButton:hover {
+  color: #e50914;
+}
+
+.logoutButton {
+  background: none;
+  border: 2px solid #e50914;
+  color: #fff;
+  padding: 6px 14px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease, color 0.3s ease;
+  margin-left: 15px;
+  align-items: center;
+}
+
+.logoutButton:hover {
+  background: #e50914;
+  color: #fff;
+}
+
+.username {
+  font-weight: 500;
+  font-size: 18px;
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.themeToggle {
+  background: none;
+  border: none;
+  color: #fff;
+  padding: 6px;
+  font-size: 20px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.themeToggle:hover {
+  color: #e50914;
+}
+
+.languageToggleWrapper {
+  position: relative;
+}
+
+.languageToggle {
+  background: none;
+  border: none;
+  color: #fff;
+  padding: 6px;
+  font-size: 20px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.languageToggle:hover {
+  color: #e50914;
+}
+
+.languageMenu {
+  position: absolute;
+  top: 50px;
+  right: 0;
+  background: #1e1e1e;
+  border: 2px solid #e50914;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  z-index: 100;
+}
+
+.languageMenu button {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 8px;
+  transition: color 0.3s ease;
+}
+
+.languageMenu button:hover {
+  color: #e50914;
+}
+
+/* Font Awesome Icons Styling */
+.fa-globe,
+.fa-moon {
+  font-size: 24px;
+  transition: transform 0.3s ease;
+}
+
+.fa-globe:hover,
+.fa-moon:hover {
+  transform: scale(1.2);
+}
+
+.logoutButton {
+  background: #e50914;
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  transition: background 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.logoutButton:hover {
+  background: #d40813;
+  transform: scale(1.05);
+}

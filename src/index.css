@@ -1,0 +1,20 @@
+/* index.css*/
+:root {
+  --background-color: #141414;
+  --text-color: #e5e5e5;
+}
+
+.light-mode {
+  --background-color: #f9f9f9;
+  --text-color: #1c1c1c;
+}
+
+.dark-mode {
+  --background-color: #141414;
+  --text-color: #e5e5e5;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
