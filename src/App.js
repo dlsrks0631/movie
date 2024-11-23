@@ -95,7 +95,7 @@ function App() {
         <Route path="/popular" element={<Popular />} />
         <Route path="/movie/:id" element={<Detail />} />
         <Route
-          path="/"
+          path="/moviedb"
           element={<Home isLoggedIn={isLoggedIn} onLogout={handleLogout} />}
         />
       </Routes>
