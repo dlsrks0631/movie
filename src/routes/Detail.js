@@ -13,7 +13,7 @@ function Detail() {
   const getMovie = useCallback(async () => {
     try {
       const response = await fetch(
-        `https://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}`
+        `https://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}&language=ko-KR`
       );
       const json = await response.json();
       setMovie(json); // 영화 데이터를 state에 저장

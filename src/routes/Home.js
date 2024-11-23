@@ -57,7 +57,7 @@ function Home() {
       for (let i = 1; i <= totalPages; i++) {
         requests.push(
           fetch(
-            `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&sort_by=popularity.desc&page=${i}`
+            `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&sort_by=popularity.desc&page=${i}&language=ko-KR`
           ).then((response) => response.json())
         );
       }
