@@ -1,4 +1,4 @@
-/* Header.module.css */
+/* 기본 헤더 스타일 */
 .header {
   display: flex;
   justify-content: center;
@@ -11,7 +11,7 @@
   position: fixed;
   top: 0;
   z-index: 1000;
-  min-height: 60px; /* 헤더 높이 고정 */
+  min-height: 60px;
 }
 
 .container {
@@ -31,9 +31,8 @@
   font-family: "Bebas Neue", sans-serif;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
   display: inline-block;
-  text-decoration: none; /* 밑줄 제거 */
-  transform: perspective(500px) rotateX(10deg);
-  margin-right: auto; /* 왼쪽으로 붙이기 위해 추가 */
+  text-decoration: none;
+  margin-right: auto;
 }
 
 .nav {
@@ -54,7 +53,6 @@
   text-decoration: none;
   font-size: 18px;
   transition: color 0.3s ease;
-  align-items: center;
 }
 
 .nav a:hover,
@@ -71,7 +69,6 @@
   cursor: pointer;
   transition: background 0.3s ease, color 0.3s ease;
   margin-left: 15px;
-  align-items: center;
 }
 
 .logoutButton:hover {
@@ -163,19 +160,84 @@
   transform: scale(1.2);
 }
 
-.logoutButton {
-  background: #e50914;
-  color: #fff;
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
-  border: none;
-  border-radius: 5px;
-  transition: background 0.3s ease, transform 0.3s ease;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+/* Mobile Responsive Styles */
+@media screen and (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .logo {
+    font-size: 28px;
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  .navList {
+    flex-direction: column;
+    gap: 15px;
+    align-items: flex-start;
+  }
+
+  .navList li {
+    width: 100%;
+  }
+
+  .languageToggleWrapper {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+
+  .languageMenu {
+    top: 40px;
+  }
+
+  .themeToggle {
+    font-size: 18px;
+  }
+
+  .logoutButton {
+    font-size: 14px;
+    padding: 6px 12px;
+  }
+
+  .username {
+    font-size: 16px;
+  }
+
+  .nav a,
+  .username {
+    font-size: 16px;
+  }
+
+  .nav a:hover,
+  .logoutButton:hover {
+    color: #e50914;
+  }
 }
 
-.logoutButton:hover {
-  background: #d40813;
-  transform: scale(1.05);
+@media screen and (max-width: 480px) {
+  .logo {
+    font-size: 24px;
+  }
+
+  .navList {
+    gap: 10px;
+  }
+
+  .themeToggle,
+  .languageToggle {
+    font-size: 18px;
+  }
+
+  .username {
+    font-size: 14px;
+  }
+
+  .logoutButton {
+    font-size: 14px;
+    padding: 5px 10px;
+  }
 }
