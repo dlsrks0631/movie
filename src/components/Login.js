@@ -6,12 +6,12 @@ function Login({ onLogin }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [keepLoggedIn, setKeepLoggedIn] = useState(false);
-  const navigate = useNavigate(); // useNavigate to handle redirection
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     onLogin(email, password, keepLoggedIn);
-    navigate("/"); // Redirect to home after login
+    navigate("/");
   };
 
   return (
