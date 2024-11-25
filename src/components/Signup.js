@@ -11,7 +11,7 @@ function Signup({ onSignup }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSignup(email, password, name); // Save information and set login state after signup
+    onSignup(email, password, name);
     navigate("/login"); // Redirect to login page after signup
   };
 
