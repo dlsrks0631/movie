@@ -125,7 +125,6 @@
   --text-color: #e5e5e5;
 }
 
-
 /* Login.module.css */
 
 /* 애니메이션 정의 */
@@ -275,7 +274,6 @@
   color: #ff4141;
 }
 
-/* 애니메이션을 통한 화면 전환 효과 */
 .fadeOut {
   animation: rotateOut 1s ease-out forwards;
 }
@@ -283,4 +281,3 @@
 .fadeIn {
   animation: rotateIn 1s ease-out forwards;
 }
-
