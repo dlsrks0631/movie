@@ -12,7 +12,7 @@ function Signup({ onSignup }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     onSignup(email, password, name);
-    navigate("/login"); // Redirect to login page after signup
+    navigate("/login");
   };
 
   return (
