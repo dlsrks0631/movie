@@ -16,12 +16,14 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [fullName, setFullName] = useState("");
   const [theme, setTheme] = useState("dark-mode");
+  const [language, setLanguage] = useState("KR");
 
-  // 로그인 상태와 테마를 로컬 스토리지에서 가져오기
+  // 로그인 상태와 테마, 언어를 로컬 스토리지에서 가져오기
   useEffect(() => {
     const storedLoginStatus = localStorage.getItem("isLoggedIn");
     const storedFullName = localStorage.getItem("fullName");
     const storedTheme = localStorage.getItem("theme") || "dark-mode";
+    const storedLanguage = localStorage.getItem("language") || "KR";
 
     if (storedLoginStatus === "true" && storedFullName) {
       setIsLoggedIn(true);
@@ -29,6 +31,7 @@ function App() {
     }
 
     setTheme(storedTheme);
+    setLanguage(storedLanguage);
     document.documentElement.className = storedTheme; // 테마 반영
   }, []);
 
@@ -82,6 +85,13 @@ function App() {
     localStorage.setItem("theme", newTheme);
   };
 
+  // 언어 토글 처리
+  const toggleLanguage = () => {
+    const newLanguage = language === "KR" ? "EN" : "KR";
+    setLanguage(newLanguage);
+    localStorage.setItem("language", newLanguage);
+  };
+
   return (
     <Router>
       {/* Header 컴포넌트를 전체 페이지에 고정 */}
@@ -91,6 +101,8 @@ function App() {
         onLogout={handleLogout}
         onToggleTheme={toggleTheme}
         currentTheme={theme}
+        onToggleLanguage={toggleLanguage}
+        currentLanguage={language}
       />
 
       {/* 페이지 라우팅 */}
@@ -102,7 +114,17 @@ function App() {
         <Route path="/moviedb" element={<Navigate to="/" />} />
         <Route
           path="/"
-          element={<Home isLoggedIn={isLoggedIn} onLogout={handleLogout} />}
+          element={
+            <Home
+              isLoggedIn={isLoggedIn}
+              onLogout={handleLogout}
+              theme={theme}
+              language={language}
+              onToggleTheme={toggleTheme}
+              onToggleLanguage={toggleLanguage}
+              fullName={fullName}
+            />
+          }
         />
       </Routes>
     </Router>

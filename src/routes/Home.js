@@ -4,25 +4,23 @@ import Header from "../components/Header";
 import styles from "./Home.module.css"; // Ensure correct path
 import "../index.css"; // Import index.css for theme styles
 
-function Home() {
+function Home({
+  isLoggedIn,
+  onLogout,
+  theme,
+  language,
+  onToggleTheme,
+  onToggleLanguage,
+  fullName,
+}) {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(true);
   const [sortOption, setSortOption] = useState("rating");
   const [genreFilter, setGenreFilter] = useState("all");
-  const [theme, setTheme] = useState("dark-mode");
-  const [language, setLanguage] = useState("KR");
   const [searchTerm, setSearchTerm] = useState("");
   const [favorites, setFavorites] = useState(() => {
-    const savedFavorites = localStorage.getItem("favorites");
+    const savedFavorites = localStorage.getItem(`favorites_${fullName}`);
     return savedFavorites ? JSON.parse(savedFavorites) : [];
-  });
-  const [isLoggedIn, setIsLoggedIn] = useState(() => {
-    const savedLogin = localStorage.getItem("isLoggedIn");
-    return savedLogin ? JSON.parse(savedLogin) : false;
-  });
-  const [fullName, setFullName] = useState(() => {
-    const savedFullName = localStorage.getItem("fullName");
-    return savedFullName ? savedFullName : "";
   });
   const [currentPage, setCurrentPage] = useState(1);
   const apiKey = "f26e473a740a9c8ca94f2586e8520c9f";
@@ -32,22 +30,10 @@ function Home() {
   }, [theme]);
 
   useEffect(() => {
-    localStorage.setItem("favorites", JSON.stringify(favorites));
-  }, [favorites]);
-
-  useEffect(() => {
-    localStorage.setItem("isLoggedIn", JSON.stringify(isLoggedIn));
-    localStorage.setItem("fullName", fullName);
-  }, [isLoggedIn, fullName]);
-
-  useEffect(() => {
     if (isLoggedIn) {
-      const savedFullName = localStorage.getItem("fullName");
-      if (savedFullName) {
-        setFullName(savedFullName);
-      }
+      localStorage.setItem(`favorites_${fullName}`, JSON.stringify(favorites));
     }
-  }, [isLoggedIn]);
+  }, [favorites, isLoggedIn, fullName]);
 
   const getMovies = async (page = 1) => {
     try {
@@ -86,16 +72,6 @@ function Home() {
     setGenreFilter(e.target.value);
   };
 
-  const handleToggleTheme = () => {
-    setTheme((prevTheme) =>
-      prevTheme === "dark-mode" ? "light-mode" : "dark-mode"
-    );
-  };
-
-  const handleToggleLanguage = () => {
-    setLanguage((prevLanguage) => (prevLanguage === "KR" ? "EN" : "KR"));
-  };
-
   const handleSearchChange = (e) => {
     setSearchTerm(e.target.value);
   };
@@ -108,13 +84,6 @@ function Home() {
         return prevFavorites.filter((favoriteId) => favoriteId !== id);
       }
     });
-  };
-
-  const handleLogout = () => {
-    setIsLoggedIn(false);
-    setFullName("");
-    localStorage.removeItem("isLoggedIn");
-    localStorage.removeItem("fullName");
   };
 
   const getTranslatedText = (text) => {
@@ -219,13 +188,13 @@ function Home() {
   return (
     <div className={styles.page}>
       <Header
-        onToggleTheme={handleToggleTheme}
+        onToggleTheme={onToggleTheme}
         currentTheme={theme}
-        onToggleLanguage={handleToggleLanguage}
+        onToggleLanguage={onToggleLanguage}
         currentLanguage={language}
         isLoggedIn={isLoggedIn}
         fullName={fullName}
-        onLogout={handleLogout}
+        onLogout={onLogout}
       />
       <div className={styles.controls}>
         <label>
