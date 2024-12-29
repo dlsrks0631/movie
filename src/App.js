@@ -1,9 +1,4 @@
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Navigate,
-} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Home from "./routes/Home";
 import Detail from "./routes/Detail";
@@ -93,7 +88,7 @@ function App() {
   };
 
   return (
-    <Router>
+    <Router basename="/moviedb">
       {/* Header 컴포넌트를 전체 페이지에 고정 */}
       <Header
         isLoggedIn={isLoggedIn}
@@ -111,7 +106,6 @@ function App() {
         <Route path="/signup" element={<Signup onSignup={handleSignup} />} />
         <Route path="/popular" element={<Popular />} />
         <Route path="/movie/:id" element={<Detail />} />
-        <Route path="/moviedb" element={<Navigate to="/" />} />
         <Route
           path="/"
           element={

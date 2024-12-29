@@ -281,3 +281,18 @@
 .fadeIn {
   animation: rotateIn 1s ease-out forwards;
 }
+
+/* Login.module.css */
+.kakaoLoginButton {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #fee500; /* 카카오톡 대표 컬러 */
+  color: black;
+  padding: 15px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+}

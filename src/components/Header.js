@@ -75,8 +75,12 @@ function Header({
                 </button>
                 {languageMenuVisible && (
                   <div className={styles.languageMenu}>
-                    <button onClick={() => onToggleLanguage("KR")}>한국어</button>
-                    <button onClick={() => onToggleLanguage("EN")}>English</button>
+                    <button onClick={() => onToggleLanguage("KR")}>
+                      한국어
+                    </button>
+                    <button onClick={() => onToggleLanguage("EN")}>
+                      English
+                    </button>
                   </div>
                 )}
               </li>
