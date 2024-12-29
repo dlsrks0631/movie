@@ -16,7 +16,7 @@ React를 사용하여 영화 정보를 제공하는 웹 애플리케이션입니
 ### 1. 프로젝트 클론
 
 ```bash
-git clone https://github.com/dlsrks0631/movie movie-app
+git clone https://github.com/dlsrks0631/moviedb movie-app
 cd movie-app
 ```
 
